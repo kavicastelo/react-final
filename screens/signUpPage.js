@@ -3,7 +3,7 @@ import {LinearGradient} from "expo-linear-gradient";
 import {TextInput} from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
-export default function Login({navigation}) {
+export default function signUp({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.top}>
@@ -13,15 +13,20 @@ export default function Login({navigation}) {
                 </View>
             </View>
             <View style={styles.middle}>
-                <Text style={styles.headerText}>Login</Text>
-                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad animi
-                    consectetur, deleniti, </Text>
+                <Text style={styles.headerText}>Register</Text>
+                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </Text>
 
-                <View style={{height:140,justifyContent:'space-between'}}>
+                <View style={{height:210,justifyContent:'space-between'}}>
                     <TextInput
                         label="Email"
                         variant="outlined"
                         leading={props => <Icon name="email" {...props} />}
+                        color="#f1c40f"
+                    />
+                    <TextInput
+                        label="Full Name"
+                        variant="outlined"
+                        leading={props => <Icon name="account" {...props} />}
                         color="#f1c40f"
                     />
                     <TextInput
@@ -40,7 +45,7 @@ export default function Login({navigation}) {
                 </TouchableOpacity>
             </View>
             <View style={styles.bottom}>
-                <Text>Don't have an account? <Text style={{color:'#d35400'}} onPress={()=>{navigation.navigate("signUp")}}>Sign Up</Text></Text>
+                <Text>Already have an account? <Text style={{color:'#d35400'}} onPress={()=>{navigation.navigate("login")}}>Log In</Text></Text>
             </View>
         </View>
     )
@@ -59,8 +64,8 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         paddingLeft: '10%',
         paddingRight: '10%',
-        paddingTop: '20%',
-        paddingBottom: '20%',
+        paddingTop: '10%',
+        paddingBottom: '10%',
     },
     bottom: {
         height: '20%',

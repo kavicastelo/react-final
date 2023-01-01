@@ -1,9 +1,9 @@
-import {Text, View, StyleSheet, TouchableOpacity} from "react-native";
+import {Text, View, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 import {LinearGradient} from "expo-linear-gradient";
 import {TextInput} from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
-export default function signUp({navigation}) {
+export default function SignUp({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.top}>
@@ -12,11 +12,11 @@ export default function signUp({navigation}) {
                     <LinearGradient colors={['#f1c40f', '#d35400']} style={styles.bg}/>
                 </View>
             </View>
-            <View style={styles.middle}>
+            <ScrollView style={styles.middle}>
                 <Text style={styles.headerText}>Register</Text>
                 <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </Text>
 
-                <View style={{height:210,justifyContent:'space-between'}}>
+                <View style={{height:210,justifyContent:'space-between',marginTop:10}}>
                     <TextInput
                         label="Email"
                         variant="outlined"
@@ -40,10 +40,21 @@ export default function signUp({navigation}) {
 
                 <TouchableOpacity style={styles.btn}>
                     <LinearGradient colors={['#f1c40f', '#d35400']} style={styles.bgBtn}>
-                        <Text style={styles.btnText}>Login <Icon name="arrow-right"/></Text>
+                        <Text style={styles.btnText}>Signup <Icon name="arrow-right"/></Text>
                     </LinearGradient>
                 </TouchableOpacity>
-            </View>
+                <ScrollView horizontal={true} style={{marginTop:20}}>
+                    <TouchableOpacity style={styles.btnSocial}>
+                        <Text style={styles.btnText}>Facebook</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btnSocial}>
+                        <Text style={styles.btnText}>Google</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btnSocial}>
+                        <Text style={styles.btnText}>LinkedIn</Text>
+                    </TouchableOpacity>
+                </ScrollView>
+            </ScrollView>
             <View style={styles.bottom}>
                 <Text>Already have an account? <Text style={{color:'#d35400'}} onPress={()=>{navigation.navigate("login")}}>Log In</Text></Text>
             </View>
@@ -57,11 +68,13 @@ const styles = StyleSheet.create({
         alignItems: "stretch"
     },
     top: {
-        height: '20%',
+        height: '30%',
+        width:'100%',
+        overflow:"hidden",
+        position:"absolute",
     },
     middle: {
         flex: 1,
-        justifyContent: "space-between",
         paddingLeft: '10%',
         paddingRight: '10%',
         paddingTop: '10%',
@@ -121,20 +134,32 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontWeight: "bold",
-        fontSize: 40
+        fontSize: 40,
+        marginBottom:5,
+        marginTop:'50%'
     },
     text: {
         fontWeight: "normal",
-        fontSize: 18
+        fontSize: 18,
+        marginBottom:10
     },
     btn: {
         height: 40,
         width: 150,
         borderRadius: 20,
-        alignSelf: "flex-end"
+        alignSelf: "flex-end",
+        marginTop:5
     },
     btnText: {
         color: 'white',
         fontWeight: "bold"
+    },
+    btnSocial:{
+        height: 40,
+        width: 150,
+        borderRadius: 20,
+        backgroundColor:'#d35400',
+        alignItems:"center",
+        justifyContent:"center"
     }
 })

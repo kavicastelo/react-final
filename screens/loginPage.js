@@ -52,7 +52,10 @@ const styles = StyleSheet.create({
         alignItems: "stretch"
     },
     top: {
-        height: '20%',
+        height: '30%',
+        width:'100%',
+        overflow:"hidden",
+        position:"absolute"
     },
     middle: {
         flex: 1,
@@ -116,7 +119,8 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontWeight: "bold",
-        fontSize: 40
+        fontSize: 40,
+        marginTop:'50%'
     },
     text: {
         fontWeight: "normal",

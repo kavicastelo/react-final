@@ -33,7 +33,7 @@ export default function Login({navigation}) {
                     />
                 </View>
 
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity style={styles.btn} onPress={()=>{navigation.navigate('landingPage')}}>
                     <LinearGradient colors={['#f1c40f', '#d35400']} style={styles.bgBtn}>
                         <Text style={styles.btnText}>Login <Icon name="arrow-right"/></Text>
                     </LinearGradient>
